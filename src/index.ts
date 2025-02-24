@@ -31,4 +31,25 @@ class TodoList {
   removeTodo(id: number): void {
     this.todos = this.todos.filter((todo) => todo.id !== id);
   }
+
+  listTodos(): TodoItem[] {
+    return this.todos;
+  }
+
+  filterTodos(completed: boolean): TodoItem[] {
+    return this.todos.filter((todo) => todo.completed === completed);
+  }
+
+  updateTodoTask(id: number, newTask: string): void {
+    const todo = this.todos.find((todo) => todo.id === id);
+    if (todo) {
+      todo.task = newTask;
+    } else {
+      console.error(`Todo with ID ${id} not found.`);
+    }
+  }
+
+  clearCompleted(): void {
+    this.todos = this.todos.filter((todo) => !todo.completed);
+  }
 }
