@@ -29,7 +29,11 @@ class TodoList {
   }
 
   removeTodo(id: number): void {
+    const initialLength = this.todos.length;
     this.todos = this.todos.filter((todo) => todo.id !== id);
+    if (this.todos.length === initialLength) {
+      console.error(`Todo with ID ${id} not found.`);
+    }
   }
 
   listTodos(): TodoItem[] {
