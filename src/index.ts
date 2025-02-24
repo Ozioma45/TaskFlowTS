@@ -53,3 +53,20 @@ class TodoList {
     this.todos = this.todos.filter((todo) => !todo.completed);
   }
 }
+
+// Example Usage
+const myTodos = new TodoList();
+
+myTodos.addTodo("Learn TypeScript", new Date("2025-03-01"));
+myTodos.addTodo("Build a project", new Date("2025-03-10"));
+
+myTodos.completeTodo(1);
+
+console.log("All Todos:", myTodos.listTodos());
+console.log("Incomplete Todos:", myTodos.filterTodos(false));
+
+myTodos.updateTodoTask(2, "Build an awesome project");
+
+myTodos.clearCompleted();
+
+console.log("After clearing completed todos:", myTodos.listTodos());
